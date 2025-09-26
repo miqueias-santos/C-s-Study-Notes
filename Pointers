@@ -1,0 +1,50 @@
+#Pointers
+
+- Quando se fala de memória, contexto de C, lembre da RAM;
+- Cada byte da memória tem um endereço;
+- Na declaração de uma variável, memória é alocada. A quantidade depende do tipo;
+- O computador, internamente, tem uma "lookup table" que guarda as informações (tipo, local, existência) da variável;
+- Quando uma operação com uma variável é feita, o computador (compilador?) acessa essa lookup table para verificar o endereço da variável e lê-lo (read) ou alterá-lo (write);
+(nota: um identificador (indentifier) NÃO ocupa lugar de memória na RAM, apenas o valor ao qual está associado o faz.
+*PONTEIROS: São variáveis que armazenam o endereço memória de outra variável;
+
+EXEMPLO(pseudocodigo):
+int a; (suponha endereço 204)
+int *p; (declaração) (suponha endereço 64)
+p =&a; (referencing)
+a = 5;
+print p; // 204
+print &a; //204
+print a; //5
+print &p; //64
+print *p; //5 (de-referencing)
+*p = 8;
+print a; //8
+
+p --> address
+*p --> value at addr ess
+
+
+(perceba que um ponteiro também ocupa lugar na memória, logo tem um endereço. Pode ser referenciado?)
+
+TIPOS:
+int *a;
+char *c;
+double *lf;
+user defined types (classes(c++) e struct)
+(notas: Quando se fala que um ponteiro p aponta para o endereço de uma variável, realmente existe uma ligação do computador de  uma variável a outra? Ou
+p só faz armezanar o endereço e "apontar" é "modo de falar"? Por que é necessário definir o tipo "ponteiro" se um int poderia armazenar 
+um número relacionado a memória? (tem a ver com a possível existencia dessa ligação intrinsica? ou é apenas porque as operações de ponteiros
+são distintas de int e precisam ser bem definidas com um novo tipo(seria possivel ser distinto?) Qual a necessidade de ponteiros terem tipos? Seus tamanhos não são necessariamente iguais?
+Definem, de novo, outras operações distintas pelo tipo? Ou tem relação com o tamanho distintos dos tipos? De fato, lembre-se que não só lugar da memória é contralado pelo ponteiro, isto é, mais de um byte)
+
+
+
+
+
+
+Notas de conteúdos futuros:
+- LEIA: https://www.alura.com.br/artigos/garbage-collector#:~:text=%C3%A9%20Garbage%20Collector?-,A%20Garbage%20Collector%20(ou%20coletor%20de%20lixo)%20%C3%A9%20um%20mecanismo,que%20n%C3%A3o%20est%C3%A1%20sendo%20utilizado.
+- lookup table
+- escopo, variáveis globais e divisão da memória pelo compilador
+- array e função
