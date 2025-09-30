@@ -11,25 +11,26 @@
 EXEMPLO(pseudocodigo):
 int a; (suponha endereço 204)
 int *p; (declaração) (suponha endereço 64)
-p =&a; (referencing)
+p = &a; (referencing)
 a = 5;
 print p; // 204
 print &a; //204
 print a; //5
 print &p; //64
-print *p; //5 (de-referencing)
+print *p; //5 (dereferencing)
 *p = 8;
 print a; //8
 
 p --> address
 *p --> value at addr ess
 
-
+dereference --> access/modify value
 (perceba que um ponteiro também ocupa lugar na memória, logo tem um endereço. Pode ser referenciado?)
 
 TIPOS:
 int *a;
 char *c;
+float *f;
 double *lf;
 user defined types (classes(c++) e struct)
 (notas: Quando se fala que um ponteiro p aponta para o endereço de uma variável, realmente existe uma ligação do computador de  uma variável a outra? Ou
@@ -39,8 +40,21 @@ são distintas de int e precisam ser bem definidas com um novo tipo(seria possiv
 Definem, de novo, outras operações distintas pelo tipo? Ou tem relação com o tamanho distintos dos tipos? De fato, lembre-se que não só lugar da memória é contralado pelo ponteiro, isto é, mais de um byte)
 
 
+Motivação para ponteiros serem strongly typed: A função de um ponteiro não é unicamente guardar um valor da memória. Também é possível acessar o dado associado aquele local através de um porcesso chamado 
+derreferência (dereference). Para lê-lo da maneira correta e operá-lo, precisa saber de qual tipo ele é, pois, a depender do tipo, variáveis podem ter tamanhos (em bytes) distintos e a informação ser codificada
+de maneira distinta para esses bytes. Suponha ponteiros *f e *i (float e int, respectivamente). Se apontam variáveis de seus repectivos tipos e que carregam a mesma informação binária, ainda assim, seu significado
+na derreferência seria distinto. 
 
+VEJA:
+void pointers --> Não podem ser derreferenciados, também não sofre operações aritméticas. Em virtude que não possuem um tipo associado, não é possível saber o tamanho de bytes para derreferenciação (escrita e leitura),
+não é possível saber de que forma os bits são codificados, não é possível prosseguir e alcançar o "próximo" tipos da memória.
 
+CASTING:
+// char unsigned *c = (char unsigned*)&a; //Typecasting
+// char unsigned *c = (char*)&a; //Typecasting
+//char *c = (char unsigned*)&a; //Typecasting
+// char *c = (char*)&a; //Typecasting
+São possíveis! Existem motivos e implicações disso.
 
 
 Notas de conteúdos futuros:
