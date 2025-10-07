@@ -1,0 +1,155 @@
+#include <stdio.h>
+#include <math.h>
+int main(void){
+	int dataAni[3];
+ 	int dataAtual[3];
+
+	scanf(" %d/%d/%d", &dataAni[0], &dataAni[1], &dataAni[2]);
+	scanf(" %d/%d/%d", &dataAtual[0], &dataAtual[1], &dataAtual[2]);
+
+//Tratamento de "amor"
+
+	int amor = 0;
+
+	for(char i = 0; i<3; i++){
+		amor += dataAni[i];
+	}
+	for(char i = 0; i<3; i++){
+        amor += dataAtual[i];
+    }
+	amor *=7;
+	amor %= 101;
+
+	printf("Amor: %d%% ", amor);
+
+	if(amor < 20)
+		printf("Pessimo dia para se apaixonar.");
+	else if(20 <= amor && amor <= 40)
+		printf("Melhor manter o coracao <3 longe de perigo.");
+	else if(41 <= amor && amor <= 69)
+		printf("Se o papo e as ideias baterem, esta liberado pensar em algo.");
+	else if(70 <= amor && amor <= 80)
+		printf("Saia com o coracao aberto, mas lembre, nem toda troca de olhar em onibus e sinal de romance.");
+	else
+		printf("Um dia deslumbrantemente lindo para amar. Ps: Cuidado com a intensidade.");
+
+
+//Tratamento de "sorte"
+
+	int sorte = 0;
+
+    for(char i = 0; i<2; i++){
+        sorte += dataAni[i];
+    }
+    for(char i = 0; i<2; i++){
+        sorte += dataAtual[i];
+	}
+	sorte *= 9;
+	sorte += abs(dataAni[3]-dataAtual[3]);
+	sorte %= 101;
+
+	printf("Sorte: %d%% ", sorte);
+
+	if(sorte < 30)
+        printf("Nem jogue moedas pra cima hoje.");
+    else if(30 <= sorte && sorte <= 50)
+        printf("Melhor nao arriscar.");
+    else if(51 <= sorte && sorte <= 79)
+        printf("Por sua conta em risco.");
+    else if(80 <= sorte && sorte <= 90)
+        printf("Hoje vale a pena arriscar.");
+    else
+        printf("Nao tenha medo de virar cartas hoje.");
+
+	printf(" Sem tigrinho nem jogos de azar, por favor!");
+
+
+//Tratamento de "trabalho"
+
+	int trabalho = 0;
+
+    for(char i = 0; i<2; i++){
+        trabalho -= dataAni[i];
+    }
+    for(char i = 0; i<2; i++){
+        trabalho -= dataAtual[i];
+    }
+    trabalho *= 8;
+    trabalho += (dataAni[3]+dataAtual[3]);
+    trabalho %= 101;
+
+    printf("Trabalho: %d%% ", trabalho);
+
+    if(trabalho < 40)
+        printf("Hoje nao sera um dia tao proveitoso, keep calm e faca o basico.");
+    else if(40 <= trabalho && trabalho <= 50)
+        printf("Segura a emocao, nao xinga ninguem, nao esquece de beber agua.");
+    else if(51 <= trabalho && trabalho <= 69)
+        printf("Um dia proveitoso com certeza, leve sua simpatia consigo.");
+    else if(70 <= trabalho && trabalho <= 84)
+        printf("Boas vibracoes hoje, chances podem estar ao seu redor.");
+    else
+        printf("Use do maximo de networking possível hoje, dia bom para negocios.");
+
+
+//Tratamento de "cor"
+
+	int cor = 0;
+
+    for(char i = 0; i<3; i++){
+		cor += (dataAni[i] * dataAni[i]);
+	}
+	for(char i = 0; i<3; i++){
+        cor += (dataAtual[i] * dataAtual[i]);
+    }
+    cor %= 11;
+
+    printf("Cor: ");
+    switch(cor){
+        case 0:
+        printf("Cinza.");
+            break;
+
+        case 1:
+        printf("Vermelho.");
+            break;
+
+        case 2:
+        printf("Laranja.");
+            break;
+
+        case 3:
+        printf("Amarelo.");
+            break;
+
+        case 4:
+        printf("Verde.");
+            break;
+
+        case 5:
+        printf("Azul.");
+            break;
+
+        case 6:
+        printf("Roxo.");
+            break;
+
+        case 7:
+        printf("Marrom.");
+            break;
+
+        case 8:
+        printf("Rosa.");
+            break;
+
+        case 9:
+        printf("Preto.");
+            break;
+
+        case 10:
+        printf("Branco.");
+            break;
+    }
+
+	return 0;
+}
